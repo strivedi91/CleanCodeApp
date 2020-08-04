@@ -1,4 +1,5 @@
-﻿using CleanCodeApp.Infrastructure.Data;
+﻿using CleanCode.Application.Common.Interfaces;
+using CleanCodeApp.Infrastructure.Data;
 using CleanCodeApp.Infrastructure.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,8 @@ namespace CleanCode.Infrastructure
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();

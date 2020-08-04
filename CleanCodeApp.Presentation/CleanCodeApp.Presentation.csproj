@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CleanCode.Application\CleanCode.Application.csproj" />
     <ProjectReference Include="..\CleanCode.Infrastructure\CleanCode.Infrastructure.csproj" />
   </ItemGroup>
 
